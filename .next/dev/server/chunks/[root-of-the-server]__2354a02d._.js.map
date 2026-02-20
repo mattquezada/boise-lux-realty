@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///Users/matthewquezada/boise-lux-realty/app/api/lead/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\n\nexport async function POST(req: Request) {\n  try {\n    const data = await req.json();\n\n    // TODO: send to email/CRM (Resend, Mailgun, Zapier, etc.)\n    console.log(\"New lead:\", data);\n\n    return NextResponse.json({ ok: true });\n  } catch (e) {\n    return NextResponse.json({ ok: false }, { status: 400 });\n  }\n}\n"],"names":[],"mappings":";;;;AAAA;;AAEO,eAAe,KAAK,GAAY;IACrC,IAAI;QACF,MAAM,OAAO,MAAM,IAAI,IAAI;QAE3B,0DAA0D;QAC1D,QAAQ,GAAG,CAAC,aAAa;QAEzB,OAAO,gJAAY,CAAC,IAAI,CAAC;YAAE,IAAI;QAAK;IACtC,EAAE,OAAO,GAAG;QACV,OAAO,gJAAY,CAAC,IAAI,CAAC;YAAE,IAAI;QAAM,GAAG;YAAE,QAAQ;QAAI;IACxD;AACF"}}]
+}
