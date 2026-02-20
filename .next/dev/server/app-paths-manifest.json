@@ -1,6 +1,0 @@
-{
-  "/(site)/contact/page": "app/(site)/contact/page.js",
-  "/(site)/page": "app/(site)/page.js",
-  "/(site)/thank-you/page": "app/(site)/thank-you/page.js",
-  "/api/lead/route": "app/api/lead/route.js"
-}
