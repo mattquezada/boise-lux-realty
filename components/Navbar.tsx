@@ -59,8 +59,8 @@ export default function Navbar() {
             </nav>
 
             <div className="navCtas">
-              <CTAButton href="/contact#free-plan" variant="secondary">
-                Get the Free Plan
+              <CTAButton href="/2026 Relocation Guide.pdf" variant="secondary">
+                Get the Relocation Guide
               </CTAButton>
               <CTAButton href="/contact#book" variant="primary">
                 Book a 15-Minute Call
