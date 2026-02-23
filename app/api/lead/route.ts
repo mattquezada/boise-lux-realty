@@ -3,32 +3,25 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  return new Resend(key);
+}
 
 export async function POST(req: Request) {
-  // This log should ALWAYS show when route is hit
-  console.log("✅ /api/lead hit");
-
   try {
-    const data = await req.json();
-    console.log("📩 Lead payload:", data);
-
-    const apiKey = process.env.RESEND_API_KEY;
-    const to = process.env.LEAD_TO_EMAIL;
-    const from = process.env.LEAD_FROM_EMAIL;
-
-    console.log("🔐 Env check:", {
-      hasKey: Boolean(apiKey),
-      to,
-      from,
-    });
-
-    if (!apiKey) {
+    const resend = getResend();
+    if (!resend) {
       return NextResponse.json(
         { ok: false, error: "Missing RESEND_API_KEY" },
         { status: 500 }
       );
     }
+
+    const to = process.env.LEAD_TO_EMAIL;
+    const from = process.env.LEAD_FROM_EMAIL;
+
     if (!to || !from) {
       return NextResponse.json(
         { ok: false, error: "Missing LEAD_TO_EMAIL or LEAD_FROM_EMAIL" },
@@ -36,30 +29,30 @@ export async function POST(req: Request) {
       );
     }
 
-    const subject = `New lead — ${data?.name ?? "Unknown"} (${data?.persona ?? "?"})`;
+    const data = await req.json();
 
-    const result = await resend.emails.send({
-      from,
-      to,
-      subject: "NEW LEAD",
-      text: `New Lead
+    const subject = `New website lead: ${data?.name ?? "Unknown"} — ${data?.persona ?? "Lead"}`;
 
+    const text = `New Lead
 Name: ${data?.name ?? ""}
 Email: ${data?.email ?? ""}
 Phone: ${data?.phone ?? ""}
-Persona: ${data?.persona ?? ""}
+Buyer/Seller: ${data?.persona ?? ""}
 Timeline: ${data?.timeline ?? ""}
 Message: ${data?.message ?? ""}
 
 Source: ${data?.source ?? ""}
 Created: ${data?.createdAt ?? ""}
-`,
+`;
+
+    const result = await resend.emails.send({
+      from: `Boise Strategy Realty <${from}>`,
+      to,
+      subject,
+      text,
       replyTo: data?.email ? String(data.email) : undefined,
     });
 
-    console.log("✅ Resend result:", result);
-
-    // If resend returns an error, surface it
     if ((result as any)?.error) {
       return NextResponse.json(
         { ok: false, error: (result as any).error },
@@ -69,7 +62,6 @@ Created: ${data?.createdAt ?? ""}
 
     return NextResponse.json({ ok: true, id: (result as any)?.data?.id ?? null });
   } catch (e: any) {
-    console.error("❌ /api/lead error:", e);
     return NextResponse.json(
       { ok: false, error: e?.message ?? "Unknown error" },
       { status: 500 }
