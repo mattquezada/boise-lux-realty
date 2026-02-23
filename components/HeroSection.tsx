@@ -27,8 +27,8 @@ export default function HeroSection() {
             <CTAButton href="/contact#book" variant="primary">
               Book a 15-Minute Strategy Call
             </CTAButton>
-            <CTAButton href="/contact#free-plan" variant="secondary">
-              Get the Free Buyer/Seller Plan
+            <CTAButton href="/2026 Relocation Guide.pdf" variant="secondary">
+              Get the Free Relocation Guide
             </CTAButton>
           </div>
 

@@ -46,8 +46,8 @@ export default function Navbar() {
         <div className="container">
           <div className="navInner">
             <Link href="/" className="brand" onClick={() => setOpen(false)}>
-              <span className="brandTitle">Boise Strategy Realty</span>
-              <span className="brandSub">Treasure Valley</span>
+              <span className="brandTitle">Boise Premier Real Estate</span>
+              <span className="brandSub">Boise • Treasure Valley</span>
             </Link>
 
             <nav className="navLinks" aria-label="Primary">
@@ -101,8 +101,8 @@ export default function Navbar() {
       >
         <div className="drawerHeader">
           <div className="drawerTitle">
-            <div className="drawerBrand">Boise Strategy Realty</div>
-            <div className="drawerSub">Treasure Valley</div>
+            <div className="drawerBrand">Boise Premier Real Estate</div>
+            <div className="drawerSub">Boise • Treasure Valley</div>
           </div>
 
           <button
@@ -144,8 +144,8 @@ export default function Navbar() {
             <CTAButton href="/contact#book" variant="primary" className="">
               Book a 15-Minute Call
             </CTAButton>
-            <CTAButton href="/contact#free-plan" variant="secondary" className="">
-              Get the Free Plan
+            <CTAButton href="/2026 Relocation Guide.pdf" variant="secondary" className="">
+              Get the Relocation Guide
             </CTAButton>
           </div>
 

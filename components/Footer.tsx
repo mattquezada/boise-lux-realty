@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footerGrid">
           <div>
             <div className="brandTitle" style={{ fontSize: 20 }}>
-              Boise Strategy Realty
+              Boise Premier Real Estate
             </div>
             <p className="p">
               Strategic representation for buyers and sellers across Boise and
@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          {/*<div>
             <div style={{ fontWeight: 900, marginBottom: 10 }}>Explore</div>
             <div className="grid" style={{ gap: 10 }}>
               <Link className="muted" href="/sellers">Sellers</Link>
@@ -24,19 +24,21 @@ export default function Footer() {
               <Link className="muted" href="/about">About</Link>
               <Link className="muted" href="/contact">Contact</Link>
             </div>
-          </div>
+          </div>*/}
 
           <div>
             <div style={{ fontWeight: 900, marginBottom: 10 }}>Office</div>
             <div className="muted" style={{ lineHeight: 1.7 }}>
-              Office info placeholder
+              Boise Premier Real Estate
               <br />
-              Boise, ID
+              13827 W Meadowdale Dr, Boise, ID 83713
               <br />
-              (208) 555-0123
+              (208) 615-2309
+              <br />
+              realtorlogancorral@gmail.com
             </div>
             <div className="small" style={{ marginTop: 14 }}>
-              © {new Date().getFullYear()} Boise Strategy Realty. All rights reserved.
+              © {new Date().getFullYear()} Boise Premier Real Estate. All rights reserved.
             </div>
           </div>
         </div>

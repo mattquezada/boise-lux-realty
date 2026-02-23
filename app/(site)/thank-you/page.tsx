@@ -109,7 +109,7 @@ export default function ThankYouPage() {
                 >
                   Prefer text? Call or text{" "}
                   <a href="tel:12085550123" style={{ fontWeight: 900 }}>
-                    (208) 555-0123
+                    (208) 615-2309
                   </a>
                   .
                 </div>
@@ -216,7 +216,7 @@ export default function ThankYouPage() {
                     Boise • Meridian • Eagle • Nampa • Kuna
                   </div>
                   <div className="small" style={{ marginTop: 4 }}>
-                    Strategic representation across the Treasure Valley.
+                    Representation across the Treasure Valley.
                   </div>
                 </div>
               </div>
@@ -246,15 +246,15 @@ export default function ThankYouPage() {
             }}
           >
             <div className="h2" style={{ fontSize: 28 }}>
-              Want the free plan too?
+              Want the free Relocation Guide too?
             </div>
             <p className="p" style={{ marginTop: 6 }}>
-              If you haven’t already, request the free Buyer/Seller Plan—built
+              If you haven’t already, request the free Relocation Guide—built
               around your timeline and priorities.
             </p>
             <div style={{ marginTop: 12 }}>
-              <CTAButton href="/contact#free-plan" variant="secondary">
-                Get the Free Buyer/Seller Plan →
+              <CTAButton href="/2026 Relocation Guide.pdf" variant="secondary">
+                Get the Free Relocation Guide →
               </CTAButton>
             </div>
           </div>

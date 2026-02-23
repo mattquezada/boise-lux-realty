@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StatsBar />
+      {/*<StatsBar />*/}
 
       <section className="section">
         <div className="container">
@@ -61,7 +61,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-3" style={{ marginTop: 22 }}>
+          {/*<div className="grid grid-3" style={{ marginTop: 22 }}>
             <TestimonialCard
               name="Alyssa M."
               context="Seller • Meridian"
@@ -77,7 +77,7 @@ export default function HomePage() {
               context="Relocation • Eagle"
               quote="The neighborhood breakdown saved us weeks. We narrowed fast, toured efficiently, and felt confident about the long-term decision."
             />
-          </div>
+          </div>*/}
         </div>
       </section>
 

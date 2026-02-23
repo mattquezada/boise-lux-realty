@@ -6,8 +6,8 @@ export default function PageHeader({
   kicker = "Boise • Meridian • Eagle • Nampa • Kuna • Treasure Valley",
   primaryHref = "/contact#book",
   primaryLabel = "Book a 15-Minute Strategy Call",
-  secondaryHref = "/contact#free-plan",
-  secondaryLabel = "Get the Free Buyer/Seller Plan",
+  secondaryHref = "/2026 Relocation Guide.pdf",
+  secondaryLabel = "Get the Free Relocation Guide",
 }: {
   title: string;
   lead: string;

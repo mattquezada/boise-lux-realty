@@ -3,6 +3,8 @@ import CTASection from "../../../components/CTASection";
 import PageHeader from "../../../components/PageHeader";
 import TestimonialCard from "../../../components/TestimonialCard";
 import { pageMeta } from "../../../lib/seo";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
+import { CALENDLY } from "../contact/page";
 
 export const metadata: Metadata = pageMeta({
   title: "Sell Your Home in Boise for Maximum Value",
@@ -17,11 +19,33 @@ export default function SellersPage() {
       <PageHeader
         title="Sell your home in Boise for maximum value."
         lead="Selling well isn’t about hype—it’s about positioning. We combine market signal, premium presentation, and negotiation clarity to protect your net."
-        secondaryLabel="Get the Free Seller Plan"
+        secondaryLabel="Get the Free Relocation Guide"
       />
+      <div id="book">
+              <div className="card cardPad" style={{ background: "var(--fog)" }}>
+                <h2 className="h2" style={{ fontSize: 30 }}>
+                  Booking calendar
+                </h2>
+                <p className="p">
+                  Pick a time that works. This is the fastest way to get a clear plan.
+                </p>
+
+                {CALENDLY ? (
+                  <CalendlyEmbed url={CALENDLY} height={720} />
+                ) : (
+                  <div className="card" style={{ marginTop: 16, padding: 18 }}>
+                    <div className="h3">Calendly not configured</div>
+                    <p className="p">
+                      Add <code>NEXT_PUBLIC_CALENDLY_URL</code> to <code>.env.local</code>.
+                    </p>
+                  </div>
+                )}
+              </div>
+          </div>
 
       <section className="section">
         <div className="container">
+
           <div className="grid grid-2">
             <div className="card cardPad">
               <h2 className="h2" style={{ fontSize: 30 }}>Seller pain points we solve</h2>
@@ -63,7 +87,7 @@ export default function SellersPage() {
             </div>
           </div>
 
-          <div className="sectionTight" />
+         {/*<div className="sectionTight" />
 
           <div className="maxText">
             <h2 className="h2">Seller results that feel controlled—not chaotic</h2>
@@ -86,34 +110,15 @@ export default function SellersPage() {
               context="Seller • Meridian"
               quote="Inspection didn’t derail the deal because we had a plan. Communication was crisp the whole way."
             />
-          </div>
+          </div>*/}
 
-          <div id="book" className="sectionTight" />
-
-          <div className="card cardPad" style={{ background: "var(--fog)" }}>
-            <h2 className="h2" style={{ fontSize: 30 }}>Booking section placeholder</h2>
-            <p className="p">Embed Calendly (or your booking tool) here.</p>
-            <div
-              className="card"
-              style={{
-                marginTop: 16,
-                height: 320,
-                borderRadius: 18,
-                display: "grid",
-                placeItems: "center",
-                color: "rgba(15,23,42,0.55)",
-              }}
-            >
-              Calendar embed placeholder
-            </div>
-          </div>
         </div>
       </section>
 
-      <CTASection
+      {/*<CTASection
         title="Sell with leverage—and a calm plan."
         body="If you’re considering a move in Boise or the Treasure Valley, book a 15-minute call. You’ll get clear pricing guidance and next steps."
-      />
+      />*/}
     </>
   );
 }

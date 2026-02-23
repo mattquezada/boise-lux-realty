@@ -3,6 +3,8 @@ import CTASection from "../../../components/CTASection";
 import PageHeader from "../../../components/PageHeader";
 import TestimonialCard from "../../../components/TestimonialCard";
 import { pageMeta } from "../../../lib/seo";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
+import { CALENDLY } from "../contact/page";
 
 export const metadata: Metadata = pageMeta({
   title: "Buy Smart in the Treasure Valley",
@@ -17,8 +19,30 @@ export default function BuyersPage() {
       <PageHeader
         title="Buy smart in the Treasure Valley."
         lead="Win the right home with a strategy grounded in comps, terms, and clean execution—so you don’t overpay or second-guess."
-        secondaryLabel="Get the Free Buyer Plan"
+        secondaryLabel="Get the Free Relocation Guide"
       />
+
+      <div id="book">
+        <div className="card cardPad" style={{ background: "var(--fog)" }}>
+          <h2 className="h2" style={{ fontSize: 30 }}>
+            Booking calendar
+          </h2>
+          <p className="p">
+            Pick a time that works. This is the fastest way to get a clear plan.
+          </p>
+
+          {CALENDLY ? (
+            <CalendlyEmbed url={CALENDLY} height={720} />
+          ) : (
+            <div className="card" style={{ marginTop: 16, padding: 18 }}>
+              <div className="h3">Calendly not configured</div>
+              <p className="p">
+                Add <code>NEXT_PUBLIC_CALENDLY_URL</code> to <code>.env.local</code>.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
 
       <section className="section">
         <div className="container">
@@ -73,10 +97,7 @@ export default function BuyersPage() {
 
           <div className="sectionTight" />
 
-          <div className="maxText">
-            <h2 className="h2">Buyers who won the right home—without regret</h2>
-            <p className="p">Confident decisions come from clear strategy.</p>
-          </div>
+          {/*
 
           <div className="grid grid-3" style={{ marginTop: 18 }}>
             <TestimonialCard
@@ -94,14 +115,14 @@ export default function BuyersPage() {
               context="Buyer • Kuna"
               quote="Inspection didn’t become a fight. We had a strategy and it stayed smooth."
             />
-          </div>
+          </div>*/}
         </div>
       </section>
 
-      <CTASection
+      {/*<CTASection
         title="Buy with clarity—and a real plan."
         body="Book a 15-minute call and get the roadmap: neighborhoods, financing strength, and an offer strategy that fits the Treasure Valley market."
-      />
+      />*/}
     </>
   );
 }

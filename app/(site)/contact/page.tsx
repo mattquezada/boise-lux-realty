@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMeta({
   path: "/contact",
 });
 
-const CALENDLY = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
+export const CALENDLY = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
 
 export default function ContactPage() {
   return (
@@ -25,9 +25,9 @@ export default function ContactPage() {
         <div className="container">
           <div className="grid grid-2">
             <div id="free-plan">
-              <div className="card cardPad" style={{ background: "var(--fog)" }}>
+              {/*<div className="card cardPad" style={{ background: "var(--fog)" }}>
                 <h2 className="h2" style={{ fontSize: 30 }}>
-                  Get the Free Buyer/Seller Plan
+                  Get the Free Relocation Guide
                 </h2>
                 <p className="p">
                   A simple, high-signal plan tailored to your timeline—what to do
@@ -36,18 +36,18 @@ export default function ContactPage() {
                 <p className="small" style={{ marginTop: 10 }}>
                   Fill out the form and I’ll follow up quickly.
                 </p>
-              </div>
+              </div>*/}
 
-              <div style={{ marginTop: 16 }}>
-                <ContactForm />
-              </div>
-
-              <div className="card cardPad" style={{ marginTop: 16 }}>
-                <div className="h3">Office info</div>
+              <div>
+                <h2 className="h2" style={{ fontSize: 30 }}>
+                  Get the Free Relocation Guide
+                </h2>
                 <p className="p">
-                  Boise, Idaho <br />
-                  (208) 555-0123 <br />
-                  hello@example.com
+                  A simple, high-signal plan tailored to your timeline—what to do
+                  first, what to avoid, and how to create leverage.
+                </p>
+                <p className="small" style={{ marginTop: 10 }}>
+                  Fill out the form and I’ll follow up quickly.
                 </p>
               </div>
             </div>
@@ -73,6 +73,18 @@ export default function ContactPage() {
                 )}
               </div>
             </div>
+            {/* <div style={{ marginTop: 16 }}>
+                <ContactForm />
+              </div> */}
+             <div className="card cardPad" style={{ marginTop: 16 }}>
+                <div className="h3">Office info</div>
+                <p className="p">
+                  Boise Premier Real Estate <br />
+                  13827 W Meadowdale Dr, Boise, ID 83713 <br />
+                  (208) 615-2309 <br />
+                  realtorlogancorral@gmail.com
+                </p>
+              </div>
           </div>
         </div>
       </section>

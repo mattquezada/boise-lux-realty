@@ -52,9 +52,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="small" style={{ marginTop: 12 }}>
-                Professional photo placeholder (swap /public/agent.jpg)
-              </div>
+            
 
               <div className="card cardPad" style={{ marginTop: 14 }}>
                 <div className="h3">Differentiation</div>
@@ -69,8 +67,7 @@ export default function AboutPage() {
               <div className="card cardPad">
                 <div className="h3">My story</div>
                 <p className="p">
-                  I built my practice around high-signal guidance—clear pricing, thoughtful negotiation,
-                  and proactive risk management. Clients don’t need pressure; they need a plan.
+                  Hi, I'm Logan! I'm husband to my beautiful wife, proud new dad to our son, and local Boise Idaho Realtor. Family means everything to me, and that’s a large part of why I love what I do. My approach is built on honesty, service, and genuine care for the people I work with — helping clients not just find a house, but a place they can call home. I so look forward to meeting you and hearing your story! Please reach out if you have questions about anything. 
                 </p>
               </div>
 
@@ -83,17 +80,17 @@ export default function AboutPage() {
               </div>
 
               <div className="grid" style={{ marginTop: 18 }}>
-                <div className="card cardPad">
+                {/*<div className="card cardPad">
                   <div className="h3">Values</div>
                   <p className="p">Clarity &gt; hype. Strategy &gt; guesswork. Crisp, honest communication.</p>
-                </div>
+                </div>*/}
 
-                <div className="card cardPad">
+                {/*<div className="card cardPad">
                   <div className="h3">How I work</div>
                   <p className="p">
                     We’ll make decisions with comps, terms, and timing—then execute with professionalism and speed.
                   </p>
-                </div>
+                </div>*/}
               </div>
 
               <div className="card cardPad" style={{ marginTop: 18 }}>

@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     const result = await resend.emails.send({
       from,
       to,
-      subject,
+      subject: "NEW LEAD",
       text: `New Lead
 
 Name: ${data?.name ?? ""}
