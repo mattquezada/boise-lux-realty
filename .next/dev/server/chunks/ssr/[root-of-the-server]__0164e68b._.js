@@ -222,7 +222,7 @@ const metadata = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$seo$
     description: "Book a 15-minute strategy call or request the free buyer/seller plan for Boise and the Treasure Valley.",
     path: "/contact"
 });
-const CALENDLY = ("TURBOPACK compile-time value", "https://calendly.com/mquezada10/30min") || "";
+const CALENDLY = ("TURBOPACK compile-time value", "https://calendly.com/realtorlogancorral/30min") || "";
 function ContactPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [

@@ -4,10 +4,6 @@
       "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
       "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
     ],
-    "[project]/app/(site)/buyers/page": [
-      "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
-      "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
-    ],
     "[project]/app/(site)/contact/page": [
       "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
       "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
@@ -17,14 +13,6 @@
       "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
     ],
     "[project]/app/(site)/sellers/page": [
-      "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
-      "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
-    ],
-    "[project]/app/(site)/thank-you/page": [
-      "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
-      "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
-    ],
-    "[project]/app/_not-found/page": [
       "static/media/a343f882a40d2cc9-s.p.71e1367e.woff2",
       "static/media/2a65768255d6b625-s.p.d19752fb.woff2"
     ]

@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className="container">
           <div className="navInner">
             <Link href="/" className="brand" onClick={() => setOpen(false)}>
-              <span className="brandTitle">Boise Premier Real Estate</span>
+              <span className="brandTitle">Logan Corral, Realtor</span>
               <span className="brandSub">Boise • Treasure Valley</span>
             </Link>
 
@@ -101,7 +101,7 @@ export default function Navbar() {
       >
         <div className="drawerHeader">
           <div className="drawerTitle">
-            <div className="drawerBrand">Boise Premier Real Estate</div>
+            <div className="drawerBrand">Logan Corral, Realtor</div>
             <div className="drawerSub">Boise • Treasure Valley</div>
           </div>
 
