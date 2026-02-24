@@ -107,8 +107,8 @@ export default function HomePage() {
                   <a className="btn btnPrimary" href="/contact#book">
                     Book a 15-Minute Strategy Call <span aria-hidden style={{ opacity: 0.7 }}>→</span>
                   </a>
-                  <a className="btn btnSecondary" href="/contact#free-plan">
-                    Get the Free Plan <span aria-hidden style={{ opacity: 0.7 }}>→</span>
+                  <a className="btn btnSecondary" href="/2026 Relocation Guide.pdf">
+                    Get the Relocation Guide <span aria-hidden style={{ opacity: 0.7 }}>→</span>
                   </a>
                 </div>
               </div>
