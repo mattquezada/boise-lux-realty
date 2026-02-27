@@ -15,10 +15,10 @@ type Props = {
 export default function PageHeader({
   title,
   lead,
-  primaryLabel = "Book a 15-Minute Strategy Call",
+  primaryLabel = "Book a 30-Minute Strategy Call",
   primaryHref = "/contact#book",
   secondaryLabel,
-  secondaryHref = "/contact#free-plan",
+  secondaryHref = "/2026 Relocation Guide.pdf",
   imageSrc,
   imageAlt = "Boise and the Treasure Valley",
   pillText = "Boise • Meridian • Eagle • Nampa • Kuna • Treasure Valley",

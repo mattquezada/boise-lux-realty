@@ -21,7 +21,7 @@ export default function CTASection({
 
             <div className="btnRow">
               <CTAButton href="/contact#book" variant="primary">
-                Book a 15-Minute Strategy Call
+                Book a 30-Minute Strategy Call
               </CTAButton>
               {/*<CTAButton href="/contact#free-plan" variant="secondary">
                 Get the Free Buyer/Seller Plan

@@ -63,7 +63,7 @@ export default function Navbar() {
                 Get the Relocation Guide
               </CTAButton>
               <CTAButton href="/contact#book" variant="primary">
-                Book a 15-Minute Call
+                Book a 30-Minute Call
               </CTAButton>
             </div>
 
@@ -142,7 +142,7 @@ export default function Navbar() {
 
           <div className="drawerCtas">
             <CTAButton href="/contact#book" variant="primary" className="">
-              Book a 15-Minute Call
+              Book a 30-Minute Call
             </CTAButton>
             <CTAButton href="/2026 Relocation Guide.pdf" variant="secondary" className="">
               Get the Relocation Guide

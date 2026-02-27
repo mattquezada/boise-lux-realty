@@ -7,7 +7,7 @@ import { getCalendlyUrl } from "../../../lib/calendly";
 export const metadata: Metadata = pageMeta({
   title: "Contact",
   description:
-    "Book a 15-minute strategy call for Boise and the Treasure Valley. Download the relocation guide and schedule a call.",
+    "Book a 30-minute strategy call for Boise and the Treasure Valley. Download the relocation guide and schedule a call.",
   path: "/contact",
 });
 
