@@ -16,6 +16,7 @@ export default function AboutPage() {
       <PageHeader
         title="Strategy you can feel calm about."
         lead="I help buyers and sellers make smart moves in Boise and the Treasure Valley by focusing on what actually matters: market signal, leverage, and clean execution."
+        imageSrc="/hero-boise-about.jpg"
       />
 
       <section className="section">

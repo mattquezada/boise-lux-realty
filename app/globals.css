@@ -298,7 +298,6 @@ a {
   transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
-/* base: structured even on white */
 .navTransparent {
   background: linear-gradient(
     180deg,
@@ -401,25 +400,24 @@ a {
   }
 }
 
-/* ✅ Burger: no outline, more visible, premium */
+/* Burger: transparent, square corners, no outline */
 .burger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 0%;
-  border: none;              /* remove outline/border */
-  outline: none;             /* remove outline */
+  border-radius: 0;
+  border: none;
+  outline: none;
   background: transparent;
   box-shadow: none;
   cursor: pointer;
-  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  transition: transform 200ms ease, background 200ms ease;
 }
 
 .burger:hover {
   transform: translateY(-1px);
-  box-shadow: 0 18px 40px rgba(232, 232, 234, 0.2);
   background: transparent;
 }
 
@@ -430,7 +428,7 @@ a {
 
 .burger:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(191, 163, 106, 0.40), 0 18px 40px rgba(15, 23, 42, 0.20);
+  box-shadow: 0 0 0 3px rgba(191, 163, 106, 0.40);
 }
 
 @media (min-width: 900px) {
@@ -445,228 +443,305 @@ a {
 }
 
 .burgerLines span {
-  width: 20px;
-  height: 2.5px;
+  width: 22px;
+  height: 3px;
   background: rgba(0, 0, 0, 0.92);
   display: block;
   border-radius: 999px;
 }
 
-.mobileMenu {
-  display: block;
-  padding-bottom: 14px;
-}
-
-@media (min-width: 900px) {
-  .mobileMenu {
-    display: none;
-  }
-}
-
-.mobilePanel {
-  margin-top: 12px;
-  border-radius: 22px;
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: var(--shadow-soft);
-  padding: 12px;
-}
-
-.mobileLink {
-  display: block;
-  padding: 12px 12px;
-  border-radius: 14px;
-  font-weight: 900;
-  color: rgba(15, 23, 42, 0.88);
-}
-
-.mobileLink:hover {
-  background: rgba(15, 23, 42, 0.03);
-}
-
-.mobileCtas {
-  display: grid;
-  gap: 10px;
-  margin-top: 10px;
-}
-
 /* =========================
-   Page Header (new)
+   Mobile Side Drawer Menu
 ========================= */
 
-.pageHeader {
-  position: relative;
-  overflow: hidden;
-  padding-top: 74px; /* navbar height */
-  background: radial-gradient(1000px 500px at 10% 0%, rgba(191, 163, 106, 0.18), transparent 60%),
-              radial-gradient(900px 500px at 100% 20%, rgba(91, 125, 166, 0.14), transparent 60%),
-              linear-gradient(180deg, rgba(245,246,248,1) 0%, rgba(255,255,255,1) 100%);
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(11, 15, 20, 0.42);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.drawerOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawerPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(86vw, 380px);
+  z-index: 61;
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 1px solid rgba(15, 23, 42, 0.10);
+  box-shadow: -24px 0 60px rgba(15, 23, 42, 0.18);
+  transform: translateX(104%);
+  transition: transform 260ms ease;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerPanelOpen {
+  transform: translateX(0%);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 12px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-.pageHeaderInner {
-  padding: 56px 0 34px;
+.drawerTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.05;
 }
 
-@media (min-width: 900px) {
-  .pageHeaderInner {
-    padding: 74px 0 44px;
-  }
-}
-
-.pageKicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 900;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  color: rgba(15, 23, 42, 0.70);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  border-radius: 999px;
-  padding: 10px 14px;
-}
-
-.pageHeaderTitle {
+.drawerBrand {
   font-family: var(--font-playfair, ui-serif, Georgia, serif);
-  font-size: 38px;
-  line-height: 1.08;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 14px 0 0;
   color: var(--ink-950);
 }
 
-@media (min-width: 900px) {
-  .pageHeaderTitle {
-    font-size: 52px;
-  }
+.drawerSub {
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(15, 23, 42, 0.60);
 }
 
-.pageHeaderLead {
-  margin-top: 14px;
-  font-size: 16px;
-  line-height: 1.72;
-  color: rgba(15, 23, 42, 0.72);
-  max-width: 760px;
+.drawerClose {
+  width: 46px;
+  height: 46px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 180ms ease;
+}
+
+.drawerClose:hover {
+  transform: translateY(-1px);
+}
+
+.drawerClose:focus-visible {
+  box-shadow: none;
+}
+
+.drawerBody {
+  padding: 10px 14px 18px;
+  overflow: auto;
+}
+
+.drawerNav {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  border-radius: 0;
+  font-weight: 900;
+  color: rgba(15, 23, 42, 0.88);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.drawerLink:hover {
+  background: rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.drawerDivider {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.08);
+  margin: 14px 0;
+}
+
+.drawerCtas {
+  display: grid;
+  gap: 10px;
+}
+
+/* disable old dropdown menu area */
+.mobileMenu,
+.mobilePanel {
+  display: none !important;
 }
 
 /* =========================
-   Hero (existing home hero)
+   Page Header / Pill
 ========================= */
 
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding-top: 74px; /* navbar */
-  color: #fff;
-}
-
-.heroBg {
-  position: absolute;
-  inset: 0;
-  background-image: url("/hero-boise.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 15, 20, 0.88) 0%,
-    rgba(11, 15, 20, 0.58) 52%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}
-
-.glowA,
-.glowB {
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  border-radius: 999px;
-  filter: blur(60px);
-  opacity: 0.6;
-}
-
-.glowA {
-  top: -90px;
-  left: -90px;
-  background: rgba(191, 163, 106, 0.55);
-}
-
-.glowB {
-  top: 90px;
-  right: -120px;
-  background: rgba(91, 125, 166, 0.45);
-}
-
-.heroInner {
-  position: relative;
-  padding: 72px 0 68px;
-}
-
-@media (min-width: 900px) {
-  .heroInner {
-    padding: 110px 0 90px;
-  }
-}
-
-.heroBadges {
-  margin-top: 26px;
-  display: grid;
-  gap: 12px;
-}
-
-@media (min-width: 700px) {
-  .heroBadges {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.kicker {
+.pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 900;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 12px 18px;
   border-radius: 999px;
-  padding: 10px 14px;
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(11, 15, 20, 0.20);
 }
 
-.dot {
-  width: 6px;
-  height: 6px;
+.pill::after {
+  content: "";
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
-  background: rgba(191, 163, 106, 0.95);
+  background: #bfa36a;
+  opacity: 0.9;
+  margin-left: 8px;
 }
 
-.badge {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius);
-  padding: 14px;
-  backdrop-filter: blur(12px);
+/* ========================= Hero (existing home hero) ========================= */ 
+.hero { 
+  position: relative; 
+  overflow: hidden; 
+  padding-top: 74px; 
+  /* navbar */ 
+  color: #fff; 
+} 
+
+.heroBg { 
+  position: absolute; 
+  inset: 0; 
+  background-image: url("/hero-boise.jpg"); 
+  background-size: cover; 
+  background-position: center; 
+} 
+.heroOverlay { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient( 
+    180deg, 
+    rgba(11, 15, 20, 0.88) 0%, 
+    rgba(11, 15, 20, 0.58) 52%, 
+    rgba(255, 255, 255, 1) 100% ); 
+} 
+
+.glowA, .glowB { 
+  position: absolute; 
+  width: 340px; 
+  height: 340px; 
+  border-radius: 999px; 
+  filter: blur(60px); 
+  opacity: 0.6; 
+} 
+
+.glowA { 
+  top: -90px; 
+  left: -90px; 
+  background: rgba(191, 163, 106, 0.55); 
+} 
+
+.glowB { 
+  top: 90px; 
+  right: -120px; 
+  background: rgba(91, 125, 166, 0.45); 
+} 
+
+.heroInner { 
+  position: relative; 
+  padding: 72px 0 68px; 
+} 
+
+@media (min-width: 900px) { 
+  .heroInner { 
+    padding: 110px 0 90px; 
+  } 
+} 
+
+.heroBadges { 
+  margin-top: 26px; 
+  display: grid; 
+  gap: 12px; 
+} 
+
+@media (min-width: 700px) { 
+  .heroBadges { 
+    grid-template-columns: repeat(3, 1fr); 
+  } 
+} 
+
+.kicker { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+  font-weight: 900; 
+  font-size: 12px; 
+  letter-spacing: 0.02em; 
+  color: rgba(255, 255, 255, 0.92); 
+  background: rgba(255, 255, 255, 0.10); 
+  border: 1px solid rgba(255, 255, 255, 0.14); 
+  border-radius: 999px; 
+  padding: 10px 14px; 
+  backdrop-filter: blur(12px); 
+} 
+
+.dot { 
+  width: 6px; 
+  height: 6px; 
+  border-radius: 999px; 
+  background: rgba(191, 163, 106, 0.95); 
+} 
+
+.badge { 
+  background: rgba(255, 255, 255, 0.08); 
+  border: 1px solid rgba(255, 255, 255, 0.14); 
+  border-radius: var(--radius); 
+  padding: 14px; 
+  backdrop-filter: blur(12px); 
+} 
+
+.badgeTitle { 
+  font-size: 13px; 
+  font-weight: 900; 
+  color: #fff; 
+} 
+
+.badgeBody { 
+  margin-top: 6px; 
+  font-size: 12px; 
+  line-height: 1.5; 
+  color: rgba(255, 255, 255, 0.76); 
 }
 
-.badgeTitle {
-  font-size: 13px;
-  font-weight: 900;
-  color: #fff;
+/* =========================
+   Lift hover
+========================= */
+
+.hoverLift {
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-.badgeBody {
-  margin-top: 6px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.76);
+.hoverLift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
 }
 
 /* =========================
@@ -702,16 +777,6 @@ a {
   margin-top: 4px;
   font-size: 13px;
   color: var(--muted);
-}
-
-/* Lift hover */
-.hoverLift {
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-
-.hoverLift:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lift);
 }
 
 .stars {
@@ -797,9 +862,10 @@ a {
 .ctaSection {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(1200px 600px at 20% 0%, rgba(191, 163, 106, 0.22), transparent 60%),
-              radial-gradient(900px 500px at 100% 40%, rgba(91, 125, 166, 0.18), transparent 60%),
-              linear-gradient(180deg, #0b0f14 0%, #101826 100%);
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(191, 163, 106, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 100% 40%, rgba(91, 125, 166, 0.18), transparent 60%),
+    linear-gradient(180deg, #0b0f14 0%, #101826 100%);
   color: #fff;
   padding: 76px 0;
 }
@@ -891,142 +957,157 @@ a {
     align-items: start;
   }
 }
+
 /* =========================
-   Mobile Side Drawer Menu
+   Contact page desktop layout fix
 ========================= */
 
-.drawerOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: rgba(11, 15, 20, 0.42);
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease;
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 
-.drawerOverlayOpen {
-  opacity: 1;
-  pointer-events: auto;
+@media (min-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: start;
+    gap: 28px;
+  }
 }
 
-.drawerPanel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100dvh;
-  width: min(86vw, 380px);
-  z-index: 61;
-
-  background: rgba(255, 255, 255, 0.98);
-  border-left: 1px solid rgba(15, 23, 42, 0.10);
-  box-shadow: -24px 0 60px rgba(15, 23, 42, 0.18);
-
-  transform: translateX(104%);
-  transition: transform 260ms ease;
-  will-change: transform;
-  display: flex;
-  flex-direction: column;
+.contactLeft {
+  min-width: 0;
 }
 
-.drawerPanelOpen {
-  transform: translateX(0%);
+@media (min-width: 1024px) {
+  .contactSticky {
+    position: sticky;
+    top: 92px;
+  }
 }
 
-.drawerHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 18px 18px 12px;
+.calFrame {
+  margin-top: 14px;
+  min-height: 780px;
+}
+
+@media (max-width: 1023px) {
+  .calFrame {
+    min-height: 620px;
+  }
+}
+/* =========================
+   PageHeader Hero ONLY
+   (Does NOT affect home hero)
+========================= */
+
+.pageHero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 74px;
+  color: #fff;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-.drawerTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.05;
+.pageHeroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.drawerBrand {
+.pageHeroBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.03);
+  filter: brightness(0.68) contrast(1.06) saturate(1.05);
+}
+
+.pageHeroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient( 
+    180deg, 
+    rgba(11, 15, 20, 0.88) 0%, 
+    rgba(29, 38, 48, 0.58) 52%, 
+    rgba(255, 255, 255, 1) 100% ); 
+}
+.glowC{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    closest-side at 70% 40%, 
+  rgba(148, 172, 201, 0.2), 
+  transparent 62%);
+}
+
+.pageHeroSoftGlow {
+  position: absolute;
+  inset: -20%;
+  z-index: 2;
+  background:
+    radial-gradient(closest-side at 22% 20%, rgba(191, 163, 106, 0.26), transparent 58%),
+    radial-gradient(closest-side at 70% 40%, rgba(91, 125, 166, 0.20), transparent 62%);
+  filter: blur(26px);
+}
+
+.pageHero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.pageHeroInner {
+  padding: 110px 0 80px;
+  max-width: 1100px;
+}
+
+.pageHeroTitle {
   font-family: var(--font-playfair, ui-serif, Georgia, serif);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: clamp(44px, 5vw, 84px);
+  line-height: 1.03;
   letter-spacing: -0.02em;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.98);
+}
+
+.pageHeroLead {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 760px;
+}
+
+.pageHeroCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+@media (min-width: 520px) {
+  .pageHeroCtas {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.pageHero.noImage {
+  color: var(--ink-950);
+  background:
+    radial-gradient(1000px 500px at 10% 0%, rgba(191, 163, 106, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 100% 20%, rgba(91, 125, 166, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(245,246,248,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.pageHero.noImage .pageHeroTitle {
   color: var(--ink-950);
 }
 
-.drawerSub {
-  font-size: 12px;
-  font-weight: 900;
-  color: rgba(15, 23, 42, 0.60);
-}
-
-.drawerClose {
-  width: 46px;
-  height: 46px;
-  border-radius: 0px;
-  border: none;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.drawerClose:hover {
-  background: none;
-  transform: translateY(-1px);
-}
-
-.drawerClose:focus-visible {
-  box-shadow: none;
-}
-
-.drawerBody {
-  padding: 10px 14px 18px;
-  overflow: auto;
-}
-
-.drawerNav {
-  display: grid;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.drawerLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 14px;
-  border-radius: 0px;
-  font-weight: 900;
-  color: rgba(15, 23, 42, 0.88);
-  background: rgba(255, 255, 255, 0.03);
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.drawerLink:hover {
-  background: rgba(15, 23, 42, 0.06);
-  transform: translateY(-1px);
-}
-
-.drawerDivider {
-  height: 1px;
-  background: rgba(15, 23, 42, 0.08);
-  margin: 14px 0;
-}
-
-.drawerCtas {
-  display: grid;
-  gap: 10px;
-}
-
-/* disable old dropdown menu area (we're not using mobilePanel now) */
-.mobileMenu,
-.mobilePanel {
-  display: none !important;
+.pageHero.noImage .pageHeroLead {
+  color: rgba(15, 23, 42, 0.72);
 }

@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import CTASection from "../../../components/CTASection";
 import PageHeader from "../../../components/PageHeader";
-import TestimonialCard from "../../../components/TestimonialCard";
-import { pageMeta } from "../../../lib/seo";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
-import { CALENDLY } from "../contact/page";
+import { pageMeta } from "../../../lib/seo";
+import { getCalendlyUrl } from "../../../lib/calendly";
 
 export const metadata: Metadata = pageMeta({
   title: "Sell Your Home in Boise for Maximum Value",
@@ -13,6 +11,8 @@ export const metadata: Metadata = pageMeta({
   path: "/sellers",
 });
 
+const CALENDLY = getCalendlyUrl();
+
 export default function SellersPage() {
   return (
     <>
@@ -20,37 +20,41 @@ export default function SellersPage() {
         title="Sell your home in Boise for maximum value."
         lead="Selling well isn’t about hype—it’s about positioning. We combine market signal, premium presentation, and negotiation clarity to protect your net."
         secondaryLabel="Get the Free Relocation Guide"
+        imageSrc="/hero-boise-seller.jpg"
       />
-      <div id="book">
-              <div className="card cardPad" style={{ background: "var(--fog)" }}>
-                <h2 className="h2" style={{ fontSize: 30 }}>
-                  Booking calendar
-                </h2>
-                <p className="p">
-                  Pick a time that works. This is the fastest way to get a clear plan.
-                </p>
 
-                {CALENDLY ? (
-                  <CalendlyEmbed url={CALENDLY} height={720} />
-                ) : (
-                  <div className="card" style={{ marginTop: 16, padding: 18 }}>
-                    <div className="h3">Calendly not configured</div>
-                    <p className="p">
-                      Add <code>NEXT_PUBLIC_CALENDLY_URL</code> to <code>.env.local</code>.
-                    </p>
-                  </div>
-                )}
-              </div>
-          </div>
+      <div id="book">
+        <div className="card cardPad" style={{ background: "var(--fog)" }}>
+          <h2 className="h2" style={{ fontSize: 30 }}>
+            Booking calendar
+          </h2>
+          <p className="p">
+            Pick a time that works. This is the fastest way to get a clear plan.
+          </p>
+
+          {CALENDLY ? (
+            <CalendlyEmbed url={CALENDLY} height={720} />
+          ) : (
+            <div className="card" style={{ marginTop: 16, padding: 18 }}>
+              <div className="h3">Calendly not configured</div>
+              <p className="p">
+                Add <code>NEXT_PUBLIC_CALENDLY_URL</code> to <code>.env.local</code>.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
 
       <section className="section">
         <div className="container">
-
           <div className="grid grid-2">
             <div className="card cardPad">
-              <h2 className="h2" style={{ fontSize: 30 }}>Seller pain points we solve</h2>
+              <h2 className="h2" style={{ fontSize: 30 }}>
+                Seller pain points we solve
+              </h2>
               <p className="p">
-                Most missed outcomes come from pricing drift, weak presentation, or avoidable surprises in escrow.
+                Most missed outcomes come from pricing drift, weak presentation, or avoidable
+                surprises in escrow.
               </p>
 
               <ul className="p" style={{ marginTop: 14, paddingLeft: 18 }}>
@@ -62,10 +66,13 @@ export default function SellersPage() {
             </div>
 
             <div className="card cardPad" style={{ background: "var(--fog)" }}>
-              <h2 className="h2" style={{ fontSize: 30 }}>The strategy</h2>
+              <h2 className="h2" style={{ fontSize: 30 }}>
+                The strategy
+              </h2>
               <p className="p">
-                We don’t list and hope. We build leverage with pricing grounded in comps and demand,
-                marketing that elevates perceived value, and negotiation that protects your net.
+                We don’t list and hope. We build leverage with pricing grounded in comps and
+                demand, marketing that elevates perceived value, and negotiation that protects
+                your net.
               </p>
 
               <div className="grid" style={{ marginTop: 14 }}>
@@ -86,39 +93,8 @@ export default function SellersPage() {
               <Step n="3" title="Close" body="Offer strategy, inspections, appraisal, clean closing." />
             </div>
           </div>
-
-         {/*<div className="sectionTight" />
-
-          <div className="maxText">
-            <h2 className="h2">Seller results that feel controlled—not chaotic</h2>
-            <p className="p">The goal: clean execution and strong net outcome.</p>
-          </div>
-
-          <div className="grid grid-3" style={{ marginTop: 18 }}>
-            <TestimonialCard
-              name="Monica T."
-              context="Seller • Boise"
-              quote="The pricing strategy was clear. We got strong activity early and negotiations stayed calm."
-            />
-            <TestimonialCard
-              name="Ethan P."
-              context="Seller • Eagle"
-              quote="Presentation was premium. We felt proud of how it was marketed—and the net result showed it."
-            />
-            <TestimonialCard
-              name="Samantha L."
-              context="Seller • Meridian"
-              quote="Inspection didn’t derail the deal because we had a plan. Communication was crisp the whole way."
-            />
-          </div>*/}
-
         </div>
       </section>
-
-      {/*<CTASection
-        title="Sell with leverage—and a calm plan."
-        body="If you’re considering a move in Boise or the Treasure Valley, book a 15-minute call. You’ll get clear pricing guidance and next steps."
-      />*/}
     </>
   );
 }
@@ -135,8 +111,12 @@ function Pill({ title, body }: { title: string; body: string }) {
 function Step({ n, title, body }: { n: string; title: string; body: string }) {
   return (
     <div className="card cardPad hoverLift">
-      <div className="small" style={{ fontWeight: 900, letterSpacing: "0.02em" }}>STEP {n}</div>
-      <div className="h3" style={{ marginTop: 8 }}>{title}</div>
+      <div className="small" style={{ fontWeight: 900, letterSpacing: "0.02em" }}>
+        STEP {n}
+      </div>
+      <div className="h3" style={{ marginTop: 8 }}>
+        {title}
+      </div>
       <p className="p">{body}</p>
     </div>
   );

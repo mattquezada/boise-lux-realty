@@ -1,6 +1,8 @@
 {
   "/(site)/about/page": "app/(site)/about/page.js",
+  "/(site)/buyers/page": "app/(site)/buyers/page.js",
   "/(site)/contact/page": "app/(site)/contact/page.js",
   "/(site)/page": "app/(site)/page.js",
-  "/(site)/sellers/page": "app/(site)/sellers/page.js"
+  "/(site)/sellers/page": "app/(site)/sellers/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
