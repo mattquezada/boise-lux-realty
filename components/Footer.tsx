@@ -40,6 +40,12 @@ export default function Footer() {
             <div className="small" style={{ marginTop: 14 }}>
               © {new Date().getFullYear()} Boise Premier Real Estate. All rights reserved.
             </div>
+            <div className="small" style={{ marginTop: 14 }}>
+              Designed and developed by{" "}
+              <a href="https://www.arossw.com" target="_blank" rel="noopener noreferrer">
+                Aros Software
+              </a>
+            </div>
           </div>
         </div>
       </div>
